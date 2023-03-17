@@ -7,13 +7,14 @@ import postRoutes from './routes/posts.js';
 
 
 const app=express();//app is initialised to a function
-app.use('/posts',postRoutes);
+//localhost:5000/posts  =>added prefix of posts to all the routes
+
 
 //body parser to send request
 app.use(bodyParser.json({limit:"30mb",extended:true}));
 app.use(bodyParser.urlencoded({limit:"30mb",extended:true}));
 app.use(cors());
-
+app.use('/posts',postRoutes);
 const CONNECTION_URL='mongodb+srv://vanshikav928:1234@cluster0.fexjuka.mongodb.net/?retryWrites=true&w=majority';
 const PORT=process.env.PORT || 5000;
 
