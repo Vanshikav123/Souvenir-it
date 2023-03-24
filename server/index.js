@@ -2,13 +2,13 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
-
+import dotenv from 'dotenv';
 import postRoutes from './routes/posts.js';
 
 
 const app=express();//app is initialised to a function
 //localhost:5000/posts  =>added prefix of posts to all the routes
-
+dotenv.config();
 
 //body parser to send request
 app.use(bodyParser.json({limit:"30mb",extended:true}));
